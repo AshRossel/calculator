@@ -19,6 +19,19 @@ const addDecimalPoint = function() {
     }
 };
 
+const performCalculation = function(lastExpressionChar) {
+    let expressionResult;
+
+    if(isNumber(lastExpressionChar)) {
+        let [number1, operator, number2] = display.textContent.split(' ');
+        expressionResult = operate(number1, operator, number2);
+    }
+
+    if (isNumber(expressionResult)) {
+        display.textContent = expressionResult;
+    }
+};
+
 const operate = function(number1, operator, number2) {
     let expressionResult;
     if (operator === '+') expressionResult = add(+number1, +number2);
