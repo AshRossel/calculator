@@ -42,6 +42,14 @@ const clearAllDisplay = function() {
     clearAllButton = setTimeout(() => {display.textContent = '0';}, 1000);
 };
 
+const simulateClick = function(event) {
+    let keyPressed = event.key;
+    if (keyPressed in keysList) {
+        keyPressed = document.querySelector(keysList[keyPressed]);
+        keyPressed.click();
+    }  
+};
+
 const keysList = {
     1: ".button-1",
     2: ".button-2",
