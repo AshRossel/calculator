@@ -49,3 +49,8 @@ const operators = ['+', '-', 'x', '÷'];
 const display = document.querySelector('.display');
 const allButtons = document.querySelectorAll('button');
 const clearButton = document.querySelector('.button-clear');
+
+document.addEventListener('keydown', simulateClick);
+clearButton.addEventListener('mousedown', clearAllDisplay);
+clearButton.addEventListener('mouseup', cancelClearAllDisplay);
+allButtons.forEach(button => button.addEventListener('click', populateDisplay));
