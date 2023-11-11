@@ -23,6 +23,23 @@ const operate = function(number1, operator, number2) {
     }
 };
 
+const addOperator = function(lastExpressionChar, newOperator) {
+    let expressionResult;
+
+    if(isNumber(lastExpressionChar)) {
+        let [number1, operator, number2] = display.textContent.split(' ');
+        expressionResult = operate(number1, operator, number2);
+    }
+
+    if (isNumber(expressionResult)) {
+        display.textContent = `${expressionResult} ${newOperator}`;
+    } else if (operators.includes(lastExpressionChar)) {
+        display.textContent = changeOperator(newOperator);
+    } else if (isNumber(lastExpressionChar)) {
+        display.textContent += ` ${newOperator}`;
+    }
+};
+
 const addNumber = function(lastExpressionChar, newNumber) {
     if (display.textContent === '0') {
         display.textContent = newNumber;
