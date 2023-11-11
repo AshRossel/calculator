@@ -23,6 +23,16 @@ const operate = function(number1, operator, number2) {
     }
 };
 
+const addNumber = function(lastExpressionChar, newNumber) {
+    if (display.textContent === '0') {
+        display.textContent = newNumber;
+    } else if (isNumber(lastExpressionChar) || lastExpressionChar == '.') {
+        display.textContent += newNumber;
+    } else if (operators.includes(lastExpressionChar)) {
+        display.textContent += ` ${newNumber}`;
+    }
+};
+
 const clearDisplay = function() {
     if (display.textContent.length === 1) {
         display.textContent = '0';
