@@ -6,6 +6,7 @@ const isNumber = (number) => !isNaN(number) ? true : false;
 const hasPoint = (number) => (number.indexOf('.') != -1) ? true : false;
 const changeOperator = (newOperator) => display.textContent.slice(0, -1) + newOperator;
 const removeDisplayChar = (charNumbers) => display.textContent.slice(0, -charNumbers);
+const clearAllDisplay = () => display.textContent = '0';
 
 const hasDecimalNumber = function(number) {
     return (number != undefined && number % 1 !== 0) ? true : false;
@@ -93,14 +94,6 @@ const clearDisplay = function() {
     }
 };
 
-const cancelClearAllDisplay = function() {
-    clearTimeout(clearAllButton);
-};
-
-const clearAllDisplay = function() {
-    clearAllButton = setTimeout(() => {display.textContent = '0';}, 1000);
-};
-
 const simulateClick = function(event) {
     let keyPressed = event.key;
     if (keyPressed in keysList) {
@@ -132,13 +125,12 @@ const keysList = {
     Backspace: ".button-clear",
 };
 
-let clearAllButton;
 const operators = ['+', '-', 'x', '÷'];
 const display = document.querySelector('.display');
 const allButtons = document.querySelectorAll('button');
 const clearButton = document.querySelector('.button-clear');
+const clearAllButton = document.querySelector('.button-clear-all');
 
 document.addEventListener('keydown', simulateClick);
-clearButton.addEventListener('mousedown', clearAllDisplay);
-clearButton.addEventListener('mouseup', cancelClearAllDisplay);
+clearAllButton.addEventListener('click', clearAllDisplay);
 allButtons.forEach(button => button.addEventListener('click', populateDisplay));
