@@ -1,15 +1,4 @@
-const add = function(number1, number2) {
-	return number1 + number2;
-};
-
-const subtract = function(number1, number2) {
-	return number1 - number2;
-};
-
-const multiply = function(number1, number2) {
-	return number1 * number2;
-};
-
-const divide = function(number1, number2) {
-	return number1 / number2;
-};
+const add = (number1, number2) => number1 + number2;
+const subtract = (number1, number2) => number1 - number2;
+const multiply = (number1, number2) => number1 * number2;
+const divide = (number1, number2) => (number2 == 0) ? 0 : number1 / number2;
