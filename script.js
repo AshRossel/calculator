@@ -23,6 +23,25 @@ const operate = function(number1, operator, number2) {
     }
 };
 
+const clearDisplay = function() {
+    if (display.textContent.length === 1) {
+        display.textContent = '0';
+    // Check if display text has space before the last charactere
+    } else if (display.textContent.slice(-2)[0] == ' ') {
+        display.textContent = removeDisplayChar(2);
+    } else {
+        display.textContent = removeDisplayChar(1);
+    }
+};
+
+const cancelClearAllDisplay = function() {
+    clearTimeout(clearAllButton);
+};
+
+const clearAllDisplay = function() {
+    clearAllButton = setTimeout(() => {display.textContent = '0';}, 1000);
+};
+
 const keysList = {
     1: ".button-1",
     2: ".button-2",
