@@ -44,6 +44,17 @@ const operate = function(number1, operator, number2) {
     }
 };
 
+const populateDisplay = function(event) {
+    const newValue = event.target.textContent;
+    const lastExpressionChar = display.textContent[display.textContent.length - 1];
+
+    if (newValue === 'CLEAR') clearDisplay();
+    if (newValue === '.') addDecimalPoint();
+    if (newValue === '=') performCalculation(lastExpressionChar);
+    if (isNumber(newValue)) addNumber(lastExpressionChar, newValue);
+    if (operators.includes(newValue)) addOperator(lastExpressionChar, newValue);
+};
+
 const addOperator = function(lastExpressionChar, newOperator) {
     let expressionResult;
 
