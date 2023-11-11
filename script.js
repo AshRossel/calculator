@@ -20,3 +20,26 @@ const operate = function(number1, operator, number2) {
         return (hasDecimalNumber(expressionResult)) ? expressionResult.toFixed(2) : expressionResult;
     }
 };
+
+const keysList = {
+    1: ".button-1",
+    2: ".button-2",
+    3: ".button-3",
+    4: ".button-4",
+    5: ".button-5",
+    6: ".button-6",
+    7: ".button-7",
+    8: ".button-8",
+    9: ".button-9",
+    0: ".button-0",
+    "+": ".button-add",
+    "-": ".button-subtract",
+    "/": ".button-divide",
+    "÷": ".button-divide",
+    "x": ".button-multiply",
+    "*": ".button-multiply",
+    "=": ".button-equal",
+    ".": ".button-decimal",
+    Enter: ".button-equal",
+    Backspace: ".button-clear",
+};
