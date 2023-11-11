@@ -11,6 +11,14 @@ const hasDecimalNumber = function(number) {
     return (number != undefined && number % 1 !== 0) ? true : false;
 }
 
+const addDecimalPoint = function() {
+    let lastExpressionPart = display.textContent.split(' ').pop();
+        
+    if (isNumber(lastExpressionPart) && !hasPoint(lastExpressionPart)) {
+        display.textContent += '.';
+    }
+};
+
 const operate = function(number1, operator, number2) {
     let expressionResult;
     if (operator === '+') expressionResult = add(+number1, +number2);
