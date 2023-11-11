@@ -43,3 +43,9 @@ const keysList = {
     Enter: ".button-equal",
     Backspace: ".button-clear",
 };
+
+let clearAllButton;
+const operators = ['+', '-', 'x', '÷'];
+const display = document.querySelector('.display');
+const allButtons = document.querySelectorAll('button');
+const clearButton = document.querySelector('.button-clear');
