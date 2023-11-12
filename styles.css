@@ -11,6 +11,8 @@ body {
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(white, rgb(213, 213, 213));
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .calculator {
@@ -18,6 +20,7 @@ body {
     width: 320px;
     box-shadow: 0px 4px 15px 0px;
     border-radius: 18px;
+    margin-top: 256px;
 }
 
 .display-container {
@@ -109,4 +112,22 @@ button:hover {
     font-size: 15px;
     opacity: 60%;
     font-weight: 800;
+}
+
+footer {
+    height: 30px;
+    font-weight: 500;
+    display: flex;
+    padding-bottom: 12px;
+    gap: 12px;
+}
+
+img {
+    width: 25px;
+    line-height: 30px
+}
+
+p {
+    display: inline;
+    line-height: 30px;
 }
