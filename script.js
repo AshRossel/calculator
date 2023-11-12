@@ -6,7 +6,11 @@ const isNumber = (number) => !isNaN(number) ? true : false;
 const hasPoint = (number) => (number.indexOf('.') != -1) ? true : false;
 const changeOperator = (newOperator) => display.textContent.slice(0, -1) + newOperator;
 const removeDisplayChar = (charNumbers) => display.textContent.slice(0, -charNumbers);
-const clearAllDisplay = () => display.textContent = '0';
+
+const clearAllDisplay = () => {
+    previousDisplay.textContent = '';
+    display.textContent = '0';
+}
 
 const hasDecimalNumber = function(number) {
     return (number != undefined && number % 1 !== 0) ? true : false;
@@ -29,6 +33,7 @@ const performCalculation = function(lastExpressionChar) {
     }
 
     if (isNumber(expressionResult)) {
+        previousDisplay.textContent = display.textContent;
         display.textContent = expressionResult;
     }
 };
@@ -65,6 +70,7 @@ const addOperator = function(lastExpressionChar, newOperator) {
     }
 
     if (isNumber(expressionResult)) {
+        previousDisplay.textContent = display.textContent;
         display.textContent = `${expressionResult} ${newOperator}`;
     } else if (operators.includes(lastExpressionChar)) {
         display.textContent = changeOperator(newOperator);
@@ -85,6 +91,7 @@ const addNumber = function(lastExpressionChar, newNumber) {
 
 const clearDisplay = function() {
     if (display.textContent.length === 1) {
+        previousDisplay.textContent = '';
         display.textContent = '0';
     // Check if display text has space before the last charactere
     } else if (display.textContent.slice(-2)[0] == ' ') {
@@ -127,6 +134,7 @@ const keysList = {
 
 const operators = ['+', '-', 'x', '÷'];
 const display = document.querySelector('.display');
+const previousDisplay = document.querySelector('.previous-expression');
 const allButtons = document.querySelectorAll('button');
 const clearButton = document.querySelector('.button-clear');
 const clearAllButton = document.querySelector('.button-clear-all');
