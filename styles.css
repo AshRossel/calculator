@@ -11,17 +11,17 @@ body {
 }
 
 .calculator {
-    height: 576px;
-    width: 352px;
+    height: 608px;
+    width: 320px;
     border: black solid 4px;
 }
 
 .display {
-    height: 192px;
+    height: 224px;
 }
 
 .buttons {
-    height: 385px;
+    height: 384px;
     display: flex;
     flex-direction: column;
 }
