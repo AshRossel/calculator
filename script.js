@@ -117,6 +117,18 @@ const changeFontSize = function() {
     }
 }
 
+const blockCharAddition = function(event) {
+    if (event.target.textContent != 'AC' && event.target.textContent != 'CLEAR'&& event.target.textContent != '=') {
+        if (display.textContent.length == 27) {
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        return true;
+    }
+}
+
 const keysList = {
     1: ".button-1",
     2: ".button-2",
@@ -152,7 +164,9 @@ display.style.fontSize = '36px';
 document.addEventListener('keydown', simulateClick);
 clearAllButton.addEventListener('click', clearAllDisplay);
 allButtons.forEach(button => button.addEventListener('click', (e) => {
-    populateDisplay(e); 
-    changeFontSize(e);
+    if (blockCharAddition(e)) {
+        populateDisplay(e); 
+        changeFontSize(e);
+    }
     })
 );
