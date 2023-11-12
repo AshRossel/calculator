@@ -1,6 +1,8 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
 }
 
 body {
@@ -8,20 +10,39 @@ body {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(white, rgb(213, 213, 213));
 }
 
 .calculator {
     height: 608px;
     width: 320px;
-    border: black solid 4px;
+    box-shadow: 0px 4px 15px 0px;
+    border-radius: 18px;
+}
+
+.display-container {
+    height: 224px;
+    background-color: #212F45;
+    border-radius: 18px 18px 0 0;
+    border-bottom: 2px solid #0bd5be;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    box-shadow: 0px 4px 70px 0px black inset;
 }
 
 .display {
-    height: 224px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    font-weight: 800;
+    font-size: 36px;
 }
 
 .buttons {
-    height: 384px;
+    height: 385px;
     display: flex;
     flex-direction: column;
 }
@@ -34,4 +55,47 @@ body {
 button {
     flex: 1;
     font-size: 20px;
+    background-color: #006466;
+    color: white;
+    border: none;
+    transition: opacity 0.25s, text-shadow 0.25s, font-size 0.1s;
+}
+
+.button-multiply {
+    font-size: 28px;
+    padding-bottom: 4px;
+}
+
+.button-subtract, .button-add, .button-divide {
+    font-size: 24px;
+}
+
+.button-divide, .button-multiply, .button-subtract, .button-add {
+    color: #0bd5be;
+}
+
+.button-add {
+    border-radius: 0 0 18px 0;
+}
+
+.button-decimal {
+    border-radius: 0 0 0 18px;
+}
+
+.title {
+    align-self: center;
+    font-size: 15px;
+    font-weight: 900;
+    padding-top: 25px;
+}
+
+button:hover {
+    opacity: 90%;
+    text-shadow: 1px 1px 2px;
+    font-size: 28px;
+}
+
+.button-clear, .button-clear-all {
+    color: #144552;
+    font-weight: 500;
 }
