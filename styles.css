@@ -101,6 +101,12 @@ button:hover {
 .button-clear, .button-clear-all {
     color: #144552;
     font-weight: 500;
+    font-size: 26px;
+    transition: color 0.5s;
+}
+
+.button-clear:hover, .button-clear-all:hover {
+    color: white;
 }
 
 .previous-expression, .display {
