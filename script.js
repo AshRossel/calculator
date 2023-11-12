@@ -109,6 +109,14 @@ const simulateClick = function(event) {
     }  
 };
 
+const changeFontSize = function() {
+    if (display.textContent.length > 13) {
+        display.style.fontSize = '18px'
+    } else {
+        display.style.fontSize = '36px'
+    }
+}
+
 const keysList = {
     1: ".button-1",
     2: ".button-2",
@@ -139,6 +147,12 @@ const allButtons = document.querySelectorAll('button');
 const clearButton = document.querySelector('.button-clear');
 const clearAllButton = document.querySelector('.button-clear-all');
 
+display.style.fontSize = '36px';
+
 document.addEventListener('keydown', simulateClick);
 clearAllButton.addEventListener('click', clearAllDisplay);
-allButtons.forEach(button => button.addEventListener('click', populateDisplay));
+allButtons.forEach(button => button.addEventListener('click', (e) => {
+    populateDisplay(e); 
+    changeFontSize(e);
+    })
+);
